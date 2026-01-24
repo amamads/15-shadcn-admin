@@ -14,6 +14,12 @@ import { cn } from "@/lib/utils";
 import { ChevronRight, UserLock } from "lucide-react";
 import { useState } from "react";
 
+const items = [
+  { title: "Sign in", path: "#" },
+  { title: "Sign Up", path: "#" },
+  { title: "User Management", path: "#" },
+];
+
 export default function ClerkCollapsible() {
   const [open, setOpen] = useState(false);
   return (
@@ -30,15 +36,11 @@ export default function ClerkCollapsible() {
         </CollapsibleTrigger>
         <CollapsibleContent>
           <SidebarMenuSub>
-            <SidebarMenuSubItem>
-              <SidebarMenuSubButton>Sign In</SidebarMenuSubButton>
-            </SidebarMenuSubItem>
-            <SidebarMenuSubItem>
-              <SidebarMenuSubButton>Sign Up</SidebarMenuSubButton>
-            </SidebarMenuSubItem>
-            <SidebarMenuSubItem>
-              <SidebarMenuSubButton>User Management</SidebarMenuSubButton>
-            </SidebarMenuSubItem>
+            {items.map(({title}) => (
+              <SidebarMenuSubItem key={title}>
+                <SidebarMenuSubButton>{title}</SidebarMenuSubButton>
+              </SidebarMenuSubItem>
+            ))}
           </SidebarMenuSub>
         </CollapsibleContent>
       </SidebarMenuItem>

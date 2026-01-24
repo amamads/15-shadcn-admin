@@ -1,6 +1,7 @@
 import { Separator } from "../atoms/separator";
 import { SidebarTrigger } from "../atoms/sidebar";
-import AvatarNav from "./components/Avatar";
+// import { SidebarTrigger } from "../atoms/sidebar";
+import AvatarDropdown from "./components/AvatarDropdown";
 import MenuDropdown from "./components/MenuDropdown";
 import SerchBtn from "./components/serchIBtn";
 import ThemeDropdown from "./components/ThemeDropdown";
@@ -16,11 +17,11 @@ export default function Navbar() {
 
         <MenuDropdown />
       </div>
-      <div className="flex gap-1 items-center">
+      <div className="flex gap-3 items-center">
         <SerchBtn />
         <ThemeDropdown />
         <ThemeSettinga />
-        <AvatarNav />
+        <AvatarDropdown />
       </div>
     </div>
   );

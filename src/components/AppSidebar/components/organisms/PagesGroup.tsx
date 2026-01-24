@@ -1,6 +1,6 @@
-import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/atoms/sidebar";
-import React from "react";
-import ClerkCollapsible from "../molecules/ClerkCollapsible";
+import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu } from "@/components/atoms/sidebar";
+import AuthCollapsible from "../molecules/AuthCollapsible";
+import ErrorsCollapsible from "../molecules/ErrorsCollapsibe";
 
 export default function PagesGroup() {
   return (
@@ -8,6 +8,8 @@ export default function PagesGroup() {
       <SidebarGroupLabel>Pages</SidebarGroupLabel>
       <SidebarGroupContent>
         <SidebarMenu>
+            <AuthCollapsible/>
+            <ErrorsCollapsible/>
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

@@ -1,0 +1,99 @@
+import { Avatar, AvatarFallback } from "@/components/atoms/avatar";
+import { Button } from "@/components/atoms/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/atoms/dropdown-menu";
+import { SidebarHeader } from "@/components/atoms/sidebar";
+import {
+  BadgeCheck,
+  Bell,
+  ChevronsUpDown,
+  CreditCard,
+  LogOut,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
+
+type Item = {
+  title: string;
+  icon: LucideIcon;
+};
+
+const items: Item[] = [
+  {
+    title: "Account",
+    icon: BadgeCheck,
+  },
+  {
+    title: "Biling",
+    icon: CreditCard,
+  },
+  {
+    title: "Notifications",
+    icon: Bell,
+  },
+];
+
+export default function AppSidebarFooter() {
+  return (
+    <SidebarHeader>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="px-2 py-6">
+            <div className="grid grid-cols-[auto_1fr_auto] items-center w-full">
+              <Avatar className="rounded-sm">
+                <AvatarFallback className="text-sm font-bold">
+                  SN
+                </AvatarFallback>
+              </Avatar>
+              <div className="place-self-start grid justify-items-start ml-2">
+                <p className="font-bold">satnaing</p>
+                <p className="text-xs">test@sample.demo</p>
+              </div>
+              <ChevronsUpDown />
+            </div>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-70">
+          <DropdownMenuLabel className="flex">
+            <Avatar>
+              <AvatarFallback className="text-sm font-bold">SN</AvatarFallback>
+            </Avatar>
+            <div className="place-self-start grid justify-items-start ml-2">
+              <p>satnaing</p>
+              <p className="text-xs">test@sample.demo</p>
+            </div>
+          </DropdownMenuLabel>
+
+          <DropdownMenuSeparator />
+          <DropdownMenuItem className="flex items-center gap-2">
+            <Sparkles className="size-4.5" />
+            <span>Upgrade to Pro</span>
+          </DropdownMenuItem>
+
+          <DropdownMenuSeparator />
+          {items.map((item, i) => (
+            <DropdownMenuItem key={i} className="flex items-center">
+              <item.icon className="size-4.5" />
+              <span>{item.title}</span>
+            </DropdownMenuItem>
+          ))}
+
+          <DropdownMenuSeparator />
+          <DropdownMenuItem
+            className="flex items-center gap-2"
+            variant="destructive"
+          >
+            <LogOut className="size-4.5" />
+            <span>Sign out</span>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </SidebarHeader>
+  );
+}

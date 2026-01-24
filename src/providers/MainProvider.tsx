@@ -1,12 +1,13 @@
 import type { PropsWithChildren } from "react";
 import { ThemeProvider } from "./thme-provider/theme.provider";
-import SidebarProvider from "./Sidebar.provider";
+import { ReactQueryProvider } from "./ReactQueryProvider";
 
 export default function MainProvider({ children }: PropsWithChildren) {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <SidebarProvider>{children}</SidebarProvider>
-      {/* {children} */}
-    </ThemeProvider>
+    <ReactQueryProvider>
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        {children}
+      </ThemeProvider>
+    </ReactQueryProvider>
   );
 }

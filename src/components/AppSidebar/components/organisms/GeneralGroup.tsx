@@ -10,52 +10,72 @@ import {
   type LucideIcon,
   LayoutDashboard,
   ListTodo,
+  MessagesSquare,
   Package,
-  Users
+  Users,
 } from "lucide-react";
 import ClerkCollapsible from "../molecules/ClerkCollapsible";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/router/paths";
+import {
+  selectActiveItemTitle,
+  selectSetActiveItemTitle,
+  useSidebarStore,
+} from "@/stores/sidebar-store";
 
 type GeneralItem = {
   title: string;
-  url: string;
+  path: string;
   icon: LucideIcon;
 };
 // Menu items.
 const generalItems: GeneralItem[] = [
   {
     title: "Dashboard",
-    url: "#",
+    path: ROUTES.dashboard.root,
     icon: LayoutDashboard,
   },
   {
     title: "Tasks",
-    url: "#",
+    path: ROUTES.tasks.root,
     icon: ListTodo,
   },
   {
     title: "Apps",
-    url: "#",
+    path: ROUTES.apps.root,
     icon: Package,
   },
   {
+    title: "Chats",
+    path: ROUTES.chats.root,
+    icon: MessagesSquare,
+  },
+  {
     title: "Users",
-    url: "#",
+    path: ROUTES.users.root,
     icon: Users,
   },
 ];
+
 export default function GeneralGroup() {
+  const activeItemTitle = useSidebarStore(selectActiveItemTitle);
+  const setActiveItemTitle = useSidebarStore(selectSetActiveItemTitle);
   return (
     <SidebarGroup>
       <SidebarGroupLabel>General</SidebarGroupLabel>
       <SidebarGroupContent>
         <SidebarMenu>
-          {generalItems.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton asChild>
-                <a href={item.url}>
-                  <item.icon />
-                  <span>{item.title}</span>
-                </a>
+          {generalItems.map(({ title, path, icon: Icon }) => (
+            <SidebarMenuItem key={title}>
+              <SidebarMenuButton
+                asChild
+                onClick={() => setActiveItemTitle(title)}
+                isActive={title === activeItemTitle}
+              >
+                <Link to={path}>
+                  <Icon />
+                  <span>{title}</span>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
