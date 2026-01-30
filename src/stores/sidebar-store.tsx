@@ -1,4 +1,5 @@
 import { ROUTES } from "@/router/paths";
+import type { MenuButtons } from "@/types/sidebar";
 import {
   Bell,
   Bug,
@@ -19,39 +20,19 @@ import {
   UserLock,
   Users,
   UserX,
-  Wrench,
-  type LucideIcon,
+  Wrench
 } from "lucide-react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type MenuButton = {
-  title: string;
-  path: string;
-  icon?: LucideIcon;
-};
-type CollapsibleButton = {
-  title: string;
-  icon?: LucideIcon;
-  items: MenuButton[];
-};
-type MenuButtonsSection = {
-  items?: MenuButton[];
-  collapsibles?: CollapsibleButton[];
-};
 
-type MenuButtons = {
-  general: MenuButtonsSection;
-  pages: MenuButtonsSection;
-  other: MenuButtonsSection;
-};
 
 type SidebarStoreState = {
   activeItemTitle: string | null;
   setActiveItemTitle: (item: string) => void;
   menuButtons: MenuButtons;
-  isOpen: boolean;
-  setIsOpen: (value: boolean) => void;
+  open: boolean;
+  setOpen: (value: boolean) => void;
 };
 
 const menuButtons: MenuButtons = {
@@ -170,16 +151,23 @@ export const useSidebarStore = create<SidebarStoreState>()(
     (set) => ({
       menuButtons,
       activeItemTitle: "Dashboard",
-      isOpen: false,
-      setIsOpen: (value) => set({ isOpen: value }),
+      open: false,
+      setOpen: (value) => set({ open: value }),
       setActiveItemTitle: (item) => set({ activeItemTitle: item }),
     }),
     {
       name: "user",
+      partialize: (state) => ({
+        open: state.open,
+        activeItemTitle: state.activeItemTitle,
+      }),
     }
   )
 );
 
+export const selectMenuButtons = (s: SidebarStoreState) => s.menuButtons;
+export const selectOpen = (s: SidebarStoreState) => s.open;
+export const selectSetOpen = (s: SidebarStoreState) => s.setOpen;
 export const selectActiveItemTitle = (s: SidebarStoreState) =>
   s.activeItemTitle;
 export const selectSetActiveItemTitle = (s: SidebarStoreState) =>
