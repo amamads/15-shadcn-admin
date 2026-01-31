@@ -6,7 +6,7 @@ export default function AppsContent() {
   return (
     <main className="space-y-4">
       {appsData.map((data) => (
-        <AppCard data={data} />
+        <AppCard data={data} key={data.title}/>
       ))}
     </main>
   );

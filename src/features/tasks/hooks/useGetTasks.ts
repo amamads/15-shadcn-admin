@@ -4,8 +4,6 @@ import type { Task } from "@/types/task";
 import { useQuery } from "@tanstack/react-query";
 import { Query, type Models } from "appwrite";
 
-console.log(databaseId);
-
 export default function useGetTasks() {
   return useQuery<
     Models.RowList<Models.Row>,

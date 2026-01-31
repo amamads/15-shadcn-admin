@@ -29,6 +29,7 @@ export default function GeneralGroup() {
                 item={item}
                 activeItemTitle={activeItemTitle}
                 setActiveItemTitle={setActiveItemTitle}
+                key={item.title}
               />
             ))}
           {general.collapsibles &&
@@ -37,6 +38,7 @@ export default function GeneralGroup() {
                 details={item}
                 activeItemTitle={activeItemTitle}
                 setActiveItemTitle={setActiveItemTitle}
+                key={item.title}
               />
             ))}
         </SidebarMenu>

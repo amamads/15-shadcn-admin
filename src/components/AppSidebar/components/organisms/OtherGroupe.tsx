@@ -28,6 +28,7 @@ export default function OtherGroup() {
                 details={item}
                 activeItemTitle={activeItemTitle}
                 setActiveItemTitle={setActiveItemTitle}
+                key={item.title}
               />
             ))}
           {other.items &&
@@ -36,6 +37,7 @@ export default function OtherGroup() {
                 item={item}
                 activeItemTitle={activeItemTitle}
                 setActiveItemTitle={setActiveItemTitle}
+                key={item.title}
               />
             ))}
         </SidebarMenu>

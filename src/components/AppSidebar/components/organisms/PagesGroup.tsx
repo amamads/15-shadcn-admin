@@ -28,6 +28,7 @@ export default function PagesGroup() {
                 details={item}
                 activeItemTitle={activeItemTitle}
                 setActiveItemTitle={setActiveItemTitle}
+                key={item.title}
               />
             ))}
         </SidebarMenu>
