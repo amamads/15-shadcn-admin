@@ -1,6 +1,6 @@
 import { databaseId, tableId } from "@/consts";
 import { db } from "@/services/appwrite";
-import type { Task } from "@/types/task";
+import type { Task } from "@/features/tasks/types";
 import { useQuery } from "@tanstack/react-query";
 import { Query, type Models } from "appwrite";
 

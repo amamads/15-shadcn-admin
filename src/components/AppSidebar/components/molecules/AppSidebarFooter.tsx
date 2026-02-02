@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/atoms/dropdown-menu";
-import { SidebarHeader } from "@/components/atoms/sidebar";
+import { SidebarHeader, useSidebar } from "@/components/atoms/sidebar";
 import {
   BadgeCheck,
   Bell,
@@ -40,22 +40,28 @@ const items: Item[] = [
 ];
 
 export default function AppSidebarFooter() {
+  const { open, isMobile } = useSidebar();
+  const isIconOnly = !open && !isMobile;
   return (
     <SidebarHeader>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="px-2 py-6">
+          <Button variant="ghost" className={`px-2 py-6 ${isIconOnly && 'justify-center px-0'}`}>
             <div className="grid grid-cols-[auto_1fr_auto] items-center w-full">
               <Avatar className="rounded-sm">
                 <AvatarFallback className="text-sm font-bold">
                   SN
                 </AvatarFallback>
               </Avatar>
-              <div className="place-self-start grid justify-items-start ml-2">
-                <p className="font-bold">satnaing</p>
-                <p className="text-xs">test@sample.demo</p>
-              </div>
-              <ChevronsUpDown />
+              {!isIconOnly && (
+                <>
+                  <div className="place-self-start grid justify-items-start ml-2">
+                    <p className="font-bold">satnaing</p>
+                    <p className="text-xs">test@sample.demo</p>
+                  </div>
+                  <ChevronsUpDown />
+                </>
+              )}
             </div>
           </Button>
         </DropdownMenuTrigger>

@@ -1,4 +1,4 @@
-import type { Task } from "@/types/task";
+import type { Task } from "@/features/tasks/types";
 import type { RowSelectionState, VisibilityState } from "@tanstack/react-table";
 import {
   type ColumnFiltersState,
@@ -11,12 +11,19 @@ import {
 } from "@tanstack/react-table";
 import { useState } from "react";
 import { tasksColumns } from "../config/tasks-columns";
-import useGetTasks from "./useGetTasks";
+// import useGetTasks from "./useGetTasks";
+import tasksData from "../data/tasks.json";
+const defaultData = {
+  data: tasksData,
+  isLoading: false,
+  isError: false,
+  error: null,
+};
 
 export default function useTasksTable() {
-  const { data, isLoading, isError, error } = useGetTasks();
+  // const { data, isLoading, isError, error } = useGetTasks();
+  const { data, isLoading, isError, error } = defaultData;
   const tasks = data?.rows;
-
 
   const [sorting, setSorting] = useState<SortingState>([]);
   const [globalFilter, setGlobalFilter] = useState("");
@@ -29,18 +36,17 @@ export default function useTasksTable() {
 
   // const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
-    firstName: false,
-    lastName: false,
-    phone: false,
-    id: false,
-    birthDate: false,
-    maritalStatus: false,
+    label: false,
   });
 
   const table = useReactTable({
     data: tasks as Task[],
     columns: tasksColumns,
     getCoreRowModel: getCoreRowModel(),
+
+    columnResizeMode:'onChange',
+    enableColumnResizing:true,
+    // defaultColumn:{},
 
     getSortedRowModel: getSortedRowModel(),
     onSortingChange: setSorting,

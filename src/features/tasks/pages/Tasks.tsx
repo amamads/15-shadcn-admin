@@ -1,10 +1,10 @@
-import { Button } from "@/components/atoms/button";
+import CreateTaskSheet from "../components/molecules/CreateTaskSheet";
+import ImportDialog from "../components/molecules/ImportDialog";
 import TasksTable from "../components/organisms/TasksTable";
-import { Download, Plus } from "lucide-react";
 
 export const Tasks = () => {
   return (
-    <div className="mt-5">
+    <div className="my-5">
       <div className="grid gap-2">
         <div>
           <h3 className="font-bold">Tasks</h3>
@@ -13,14 +13,8 @@ export const Tasks = () => {
           </p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline">
-            <span>Import</span>
-            <Download />
-          </Button>
-          <Button>
-            <span>Create</span>
-            <Plus />
-          </Button>
+          <ImportDialog/>
+          <CreateTaskSheet/>
         </div>
       </div>
       <TasksTable />

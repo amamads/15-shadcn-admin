@@ -7,9 +7,9 @@ import {
 } from "@/components/atoms/select";
 import type { Table as TableType } from "@tanstack/react-table";
 import PaginationBtns from "./PaginationBtns";
-import type { Task } from "@/types/task";
+import type { Task } from "@/features/tasks/types";
 
-export default function Footer({ table }: { table: TableType<Task> }) {
+export default function TableFooter({ table }: { table: TableType<Task> }) {
   const defaultPageSize = table.getState().pagination.pageSize;
 
   const pageSizes = [10, 20, 30, 40, 50];

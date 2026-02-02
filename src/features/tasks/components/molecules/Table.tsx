@@ -1,4 +1,3 @@
-import { ScrollArea, ScrollBar } from "@/components/atoms/scroll-area";
 import {
   TableBody,
   TableCell,
@@ -7,12 +6,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/atoms/table";
-import type { Task } from "@/types/task";
+import type { Task } from "@/features/tasks/types";
 import { flexRender, type Table as TableType } from "@tanstack/react-table";
 
 export default function Table({ table }: { table: TableType<Task> }) {
   return (
-    <ScrollArea>
       <TableEl>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -40,7 +38,5 @@ export default function Table({ table }: { table: TableType<Task> }) {
           ))}
         </TableBody>
       </TableEl>
-      <ScrollBar orientation="horizontal" className="h-2"/>
-    </ScrollArea>
   );
 }
