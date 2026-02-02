@@ -14,7 +14,11 @@ import type { Table as TableType } from "@tanstack/react-table";
 import { CirclePlus } from "lucide-react";
 import { useEffect } from "react";
 import { prioritys } from "../../consts";
-import { selectfilterPriority, selectsetFilterPriority, useTasksStore } from "../../store/tasks-store";
+import {
+  selectfilterPriority,
+  selectsetFilterPriority,
+  useTasksStore,
+} from "../../store/tasks-store";
 import type { Task } from "../../types";
 import PriorityIcon from "./PriorityIcon";
 
@@ -23,9 +27,8 @@ export default function PriorityFilterMenu({
 }: {
   table: TableType<Task>;
 }) {
-  // const [selectedPriority, setSelectedPriority] = useState<string[]>([]);
-  const filterPrioritys = useTasksStore(selectfilterPriority)
-  const setFilterPrioritys = useTasksStore(selectsetFilterPriority)
+  const filterPrioritys = useTasksStore(selectfilterPriority);
+  const setFilterPrioritys = useTasksStore(selectsetFilterPriority);
 
   useEffect(() => {
     table.getColumn("priority")?.setFilterValue(filterPrioritys);
@@ -53,13 +56,18 @@ export default function PriorityFilterMenu({
             <CommandItem key={priority}>
               <Checkbox
                 id={priority + i}
+                  checked={filterPrioritys.includes(priority)}
                 onCheckedChange={(checked) => {
-                  setFilterPrioritys((prev) => {
-                    const arr = prev ?? [];
-                    if (checked)
-                      return arr.includes(priority) ? arr : [...arr, priority];
-                    return arr.filter((s) => s !== priority);
-                  });
+                  const arr = filterPrioritys ?? [];
+                  if (checked)
+                    return setFilterPrioritys(arr.includes(priority) ? arr : [...arr, priority])
+                  return setFilterPrioritys(arr.filter((s) => s !== priority))
+                  // setFilterPrioritys((prev) => {
+                  //   const arr = prev ?? [];
+                  //   if (checked)
+                  //     return arr.includes(priority) ? arr : [...arr, priority];
+                  //   return arr.filter((s) => s !== priority);
+                  // });
                 }}
               />
               <Label className="w-full" htmlFor={priority + i}>

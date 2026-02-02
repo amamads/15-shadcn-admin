@@ -1,17 +1,16 @@
 import { create } from "zustand";
-import type { Priority, Status } from "../types";
 
 type tasksStoreState = {
-    filterPriority:string[],
-    filterStatus:string[],
-    setFilterPriority:(value:Priority)=>void;
-    setFilterStatus:(value:Status)=>void;
+    filterPriority:string[];
+    filterStatus:string[];
+    setFilterPriority:(value:string[])=>void;
+    setFilterStatus:(value:string[])=>void;
 };
 export const useTasksStore = create<tasksStoreState>((set) => ({
     filterPriority:[],
     filterStatus:[],
-    setFilterPriority:(value)=>set([filterPriority:value]),
-    setFilterStatus:(value)=>set([filterStatus:value]),
+    setFilterPriority:(value)=>set({filterPriority:value}),
+    setFilterStatus:(value)=>set({filterStatus:value}),
 }));
 
 export const selectfilterPriority = (s: tasksStoreState) => s.filterPriority;
