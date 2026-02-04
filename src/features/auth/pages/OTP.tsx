@@ -13,7 +13,7 @@ import {
 } from "@/components/atoms/input-otp";
 import LinkBtn from "@/components/LinkBtn";
 import { ROUTES } from "@/router/paths";
-import { ArrowRight, Command } from "lucide-react";
+import { Command } from "lucide-react";
 
 export const OTP = () => {
   return (

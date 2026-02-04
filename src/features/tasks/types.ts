@@ -3,7 +3,7 @@ export type Priority = "low" | "medium" | "high";
 export type Label = "feature" | "documentation" | "bug";
 
 export interface Task {
-  id: number;
+  id: string;
   title: string;
   status: Status;
   label: Label;

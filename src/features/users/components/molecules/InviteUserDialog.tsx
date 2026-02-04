@@ -11,17 +11,8 @@ import {
 } from "@/components/atoms/dialog";
 import { Input } from "@/components/atoms/input";
 import { Label } from "@/components/atoms/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/atoms/select";
-import { MailPlus, Send } from "lucide-react";
-import { roles } from "../../consts";
-import capitalizeFirstLetter from "@/shared/utils/capitalizeFirstLetter";
 import { Textarea } from "@/components/atoms/textarea";
+import { MailPlus, Send } from "lucide-react";
 import RoleSelectBox from "./RoleSelectBox";
 
 export default function InviteUserDialog() {

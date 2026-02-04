@@ -1,5 +1,4 @@
 import { Button } from "@/components/atoms/button";
-import React from "react";
 
 export const MaintenanceError = () => {
   return (

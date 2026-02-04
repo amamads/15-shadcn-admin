@@ -1,7 +1,7 @@
 import { Badge } from "@/components/atoms/badge";
 import { Button } from "@/components/atoms/button";
 import { Card, CardContent, CardHeader } from "@/components/atoms/card";
-import type { AppData } from "@/types/app-data";
+import type { AppData } from "../../types";
 
 type Props = {
   data: AppData;

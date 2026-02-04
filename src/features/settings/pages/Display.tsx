@@ -2,7 +2,6 @@ import { Button } from "@/components/atoms/button";
 import { Checkbox } from "@/components/atoms/checkbox";
 import { Label } from "@/components/atoms/label";
 import capitalizeFirstLetter from "@/shared/utils/capitalizeFirstLetter";
-import React from "react";
 
 export function Display() {
   const checkboxsValue = [

@@ -1,6 +1,6 @@
 import { formatter } from "@/shared/utils/formaatter";
 import type { LucideIcon } from "lucide-react";
-import { Card, CardHeader } from "./atoms/card";
+import { Card } from "./atoms/card";
 
 export default function MetricCard({
   title,

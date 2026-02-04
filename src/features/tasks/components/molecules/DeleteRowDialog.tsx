@@ -13,6 +13,7 @@ import { useState } from "react";
 
 export default function DeleteRowDialog({ taskId, open }: { taskId: string ,open:boolean}) {
     const [open2, setOpen] = useState(false)
+    console.log(open);
     
   return (
     <AlertDialog open={open2} >

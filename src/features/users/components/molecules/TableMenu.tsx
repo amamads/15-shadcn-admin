@@ -8,11 +8,11 @@ import {
 } from "@/components/atoms/dropdown-menu";
 import type { Row } from "@tanstack/react-table";
 import { Ellipsis, Trash2, UserPen } from "lucide-react";
-import { useState } from "react";
 import type { User } from "../../types";
 
 export default function TableMenu({ row }: { row: Row<User> }) {
-    const [openDialog, setOpenDialog] = useState(false)
+    // const [openDialog, setOpenDialog] = useState(false)
+    console.log(row);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

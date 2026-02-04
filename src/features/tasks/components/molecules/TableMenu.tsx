@@ -13,12 +13,12 @@ import {
 import { Label } from "@/components/atoms/label";
 import { RadioGroup, RadioGroupItem } from "@/components/atoms/radio-group";
 import capitalizeFirstLetter from "@/shared/utils/capitalizeFirstLetter";
-import { Ellipsis, Trash2 } from "lucide-react";
-import { labels } from "../../consts";
-import type { Label as LabelType, Task } from "../../types";
 import type { Row } from "@tanstack/react-table";
-import DeleteRowDialog from "./DeleteRowDialog";
+import { Ellipsis } from "lucide-react";
 import { useState } from "react";
+import { labels } from "../../consts";
+import type { Task } from "../../types";
+import DeleteRowDialog from "./DeleteRowDialog";
 
 export default function TableMenu({ row }: { row: Row<Task> }) {
     const [openDialog, setOpenDialog] = useState(false)

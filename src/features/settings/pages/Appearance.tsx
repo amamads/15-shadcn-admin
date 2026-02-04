@@ -8,7 +8,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/atoms/select";
-import { Skeleton } from "@/components/atoms/skeleton";
 
 export const Appearance = () => {
   const fontValues = ["inter", "manrope", "system"];
