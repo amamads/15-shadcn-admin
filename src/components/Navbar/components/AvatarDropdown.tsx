@@ -17,9 +17,9 @@ const items = [
     title: "Profile",
     path: ROUTES.settings.profile,
     shortcut: (
-      <div className="flex items-center text-muted-foreground">
+      <div className="flex items-center text-muted-foreground gap-1">
         <ArrowBigUp className="size-3" />
-        <Command className="size-3.5"/>
+        <Command className="size-3" />
         <span className="text-xs">P</span>
       </div>
     ),
@@ -28,8 +28,8 @@ const items = [
     title: "Billing",
     path: ROUTES.settings.profile,
     shortcut: (
-      <div className="flex items-center  text-muted-foreground">
-        <Command className="size-3.5"/>
+      <div className="flex items-center gap-1  text-muted-foreground">
+        <Command className="size-3" />
         <span className="text-xs">B</span>
       </div>
     ),
@@ -38,8 +38,8 @@ const items = [
     title: "Settings",
     path: ROUTES.settings.profile,
     shortcut: (
-      <div className="flex items-center  text-muted-foreground">
-        <Command className="size-3.5"/>
+      <div className="flex items-center gap-1  text-muted-foreground">
+        <Command className="size-3" />
         <span className="text-xs">S</span>
       </div>
     ),
@@ -74,7 +74,14 @@ export default function AvatarDropdown() {
           </DropdownMenuItem>
         ))}
         <DropdownMenuSeparator />
-        <SingOutDialog />
+        <DropdownMenuItem variant="destructive">
+          <SingOutDialog />
+          <div className="flex items-center ml-auto">
+            <ArrowBigUp className="size-3 text-destructive"/>
+            <Command className="size-3 text-destructive" />
+            <span className="text-xs">Q</span>
+          </div>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

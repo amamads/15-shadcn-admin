@@ -21,6 +21,7 @@ export default function AppSidebarButton({
       <SidebarMenuButton
         asChild
         onClick={() => setActiveItemTitle(title)}
+        // isActive={true}
         isActive={title === activeItemTitle}
       >
         <Link to={path}>

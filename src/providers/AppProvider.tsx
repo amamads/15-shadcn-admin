@@ -1,5 +1,5 @@
-import { type PropsWithChildren } from 'react'
-import { AppSidebarProvider } from './Sidebar.provider'
+import { type PropsWithChildren } from 'react';
+import { AppSidebarProvider } from './Sidebar.provider';
 
 export default function AppProvider({children}:PropsWithChildren) {
   return (

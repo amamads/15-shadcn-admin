@@ -3,7 +3,7 @@ import { SidebarTrigger } from "../atoms/sidebar";
 // import { SidebarTrigger } from "../atoms/sidebar";
 import AvatarDropdown from "./components/AvatarDropdown";
 import MenuDropdown from "./components/MenuDropdown";
-import SerchBtn from "./components/serchIBtn";
+import SearchDialog from "./components/SearchDialog";
 import ThemeDropdown from "./components/ThemeDropdown";
 import ThemeSettinga from "./components/ThemeSettings";
 
@@ -14,11 +14,11 @@ export default function Navbar() {
         <SidebarTrigger variant="outline" className="size-8" />
 
         <Separator orientation="vertical" />
-
         <MenuDropdown />
+        {/* {showDashboardMenu && <MenuDropdown />} */}
       </div>
       <div className="flex gap-3 items-center">
-        <SerchBtn />
+        <SearchDialog />
         <ThemeDropdown />
         <ThemeSettinga />
         <AvatarDropdown />

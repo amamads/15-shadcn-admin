@@ -1,9 +1,10 @@
 import { Card } from "@/components/atoms/card";
 import useTasksTable from "../../hooks/useTasksTable";
-import Table from "../molecules/Table";
+import Table from "../../../../components/Table";
 import TableFooter from "../molecules/TableFooter";
 import TableHeader from "../molecules/TableHeader";
 import { ScrollArea, ScrollBar } from "@/components/atoms/scroll-area";
+import type { Task } from "../../types";
 
 export default function TasksTable() {
   const { table, isLoading } = useTasksTable();
@@ -20,7 +21,7 @@ export default function TasksTable() {
       <main className="mt-3">
         <Card className="p-0 rounded-md w-full">
           <ScrollArea className="w-full">
-            <Table table={table} />
+            <Table<Task> table={table} />
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
         </Card>

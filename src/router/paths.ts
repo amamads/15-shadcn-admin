@@ -2,7 +2,7 @@ export const ROUTES = {
   auth: {
     signUp: "/sign-up",
     signIn: "/sign-in",
-    signIn2: "/sign-in2",
+    signIn2: "/sign-in-2",
     forgotPassword: "/forgot-password",
     otp: "/otp",
   },
@@ -14,7 +14,7 @@ export const ROUTES = {
   errors: {
     unauthorized: "/unauthorized",
     forbidden: "/forbidden",
-    notFound: "/not-found",
+    notFound: "/*",
     internalServerError: "/internal-server-error",
     maintenanceError: "/maintenance-error ",
   },
@@ -29,4 +29,5 @@ export const ROUTES = {
   generals: {
     help: "/help",
   },
+  falsePage:'/asfd'
 };

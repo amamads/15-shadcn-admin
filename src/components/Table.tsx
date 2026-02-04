@@ -6,10 +6,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/atoms/table";
-import type { Task } from "@/features/tasks/types";
 import { flexRender, type Table as TableType } from "@tanstack/react-table";
 
-export default function Table({ table }: { table: TableType<Task> }) {
+export default function Table<T>({ table }: { table: TableType<T> }) {
   return (
       <TableEl>
         <TableHeader>

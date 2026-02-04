@@ -1,6 +1,6 @@
-import type { PropsWithChildren } from "react";
-import { ThemeProvider } from "./thme-provider/theme.provider";
+import { type PropsWithChildren } from "react";
 import { ReactQueryProvider } from "./ReactQueryProvider";
+import { ThemeProvider } from "./thme-provider/theme.provider";
 
 export default function MainProvider({ children }: PropsWithChildren) {
   return (

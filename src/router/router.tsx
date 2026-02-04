@@ -6,7 +6,12 @@ import {
   Apps,
   Chats,
   Dashboard,
+  Display,
+  Forbidden,
   ForgotPassword,
+  InternalServerError,
+  MaintenanceError,
+  NotFount,
   Notifications,
   OTP,
   Profile,
@@ -14,18 +19,12 @@ import {
   SignIn2,
   SignUp,
   Tasks,
+  Unauthorized,
   Users,
 } from "../features";
 import { ROUTES } from "./paths";
-import {
-  Forbidden,
-  Help,
-  InternalServerError,
-  MaintenanceError,
-  NotFount,
-  Unauthorized,
-} from "@/pages";
 import { SettingsLayout, ErrorsLayout, AuthLayout } from "@/layouts";
+import { Help } from "@/pages";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +43,7 @@ const router = createBrowserRouter([
           { path: ROUTES.settings.account, element: <Account /> },
           { path: ROUTES.settings.appearance, element: <Appearance /> },
           { path: ROUTES.settings.notifications, element: <Notifications /> },
-          { path: ROUTES.settings.display, element: <Profile /> },
+          { path: ROUTES.settings.display, element: <Display /> },
         ],
       },
       {

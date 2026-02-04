@@ -13,11 +13,13 @@ import { GrHide } from "react-icons/gr";
 interface SortableHeaderProps<T> {
   column: Column<T, unknown>;
   lable: string;
+  showHideOption?: boolean;
 }
 
 export const SortableHeader = <T,>({
   column,
   lable,
+  showHideOption = true,
 }: SortableHeaderProps<T>) => {
   const isSorted = column.getIsSorted();
   const SortingIcon =
@@ -48,11 +50,15 @@ export const SortableHeader = <T,>({
           <ArrowDown className="size-4 mr-2" />
           Desc
         </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => column.clearSorting()}>
-          <GrHide className="size-4 mr-2 opacity-90" />
-          Hide
-        </DropdownMenuItem>
+        {showHideOption && (
+          <>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={() => column.clearSorting()}>
+              <GrHide className="size-4 mr-2 opacity-90" />
+              Hide
+            </DropdownMenuItem>
+          </>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );

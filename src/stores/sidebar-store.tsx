@@ -20,12 +20,10 @@ import {
   UserLock,
   Users,
   UserX,
-  Wrench
+  Wrench,
 } from "lucide-react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
-
 
 type SidebarStoreState = {
   activeItemTitle: string | null;
@@ -66,10 +64,10 @@ const menuButtons: MenuButtons = {
     ],
     collapsibles: [
       {
-        title: "Secured by ",
+        title: "Secured by Clerk",
         icon: UserLock,
         items: [
-          { title: "Sign in", path: "#" },
+          { title: "Sign In", path: "#" },
           { title: "Sign Up", path: "#" },
           { title: "User Management", path: "#" },
         ],
@@ -153,7 +151,7 @@ export const useSidebarStore = create<SidebarStoreState>()(
       activeItemTitle: "Dashboard",
       open: false,
       setOpen: (value) => set({ open: value }),
-      setActiveItemTitle: (item) => set({ activeItemTitle: item }),
+      setActiveItemTitle: (item) => set({ activeItemTitle: item, open: false }),
     }),
     {
       name: "user",
@@ -161,8 +159,8 @@ export const useSidebarStore = create<SidebarStoreState>()(
         open: state.open,
         activeItemTitle: state.activeItemTitle,
       }),
-    }
-  )
+    },
+  ),
 );
 
 export const selectMenuButtons = (s: SidebarStoreState) => s.menuButtons;

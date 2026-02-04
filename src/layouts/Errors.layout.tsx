@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 
 export function ErrorsLayout() {
   return (
-    <div>
+    <div className="h-svh">
       <Outlet />
     </div>
   );
