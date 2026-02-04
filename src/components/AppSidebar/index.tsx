@@ -1,9 +1,7 @@
 import {
   Sidebar,
-  SidebarContent,
-  useSidebar,
+  SidebarContent
 } from "@/components/atoms/sidebar";
-import { Button } from "../atoms/button";
 import { ScrollArea } from "../atoms/scroll-area";
 import AppSidebarFooter from "./components/molecules/AppSidebarFooter";
 import AppSidebarHeader from "./components/molecules/AppSidebarHeader";

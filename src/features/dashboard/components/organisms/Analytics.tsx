@@ -5,7 +5,7 @@ import Devices from "../molecules/analytics/Devices";
 
 export default function Analytics() {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="grid gap-4 lg:grid-cols-[4fr_3fr]">
       <Chart />
       <Cards />
       <Referrenrs/>

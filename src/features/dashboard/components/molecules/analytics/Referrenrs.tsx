@@ -24,11 +24,16 @@
         </CardHeader>
         <CardContent>
             {items.map(({ title, value, number }) => (
-            <div className="grid grid-cols-3 grid-rows-2 items-center">
+            <div className="flex">
                 <p className="text-xs text-muted-foreground col-span-2">{title}</p>
                 <Progress value={value} className="col-span-2"/>
                 <span className="">{number}</span>
             </div>
+            // <div className="grid grid-cols-3 grid-rows-2 items-center">
+            //     <p className="text-xs text-muted-foreground col-span-2">{title}</p>
+            //     <Progress value={value} className="col-span-2"/>
+            //     <span className="">{number}</span>
+            // </div>
             ))}
         </CardContent>
         </Card>

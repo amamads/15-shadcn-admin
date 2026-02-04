@@ -1,29 +1,17 @@
-import { Outlet, useLocation } from "react-router";
+import { Outlet } from "react-router";
 import { ScrollArea, ScrollBar } from "./components/atoms/scroll-area";
 import { Switch } from "./components/atoms/switch";
 import Navbar from "./components/Navbar";
 import AppProvider from "./providers/AppProvider";
-import { useEffect } from "react";
-import { ROUTES } from "./router/paths";
 
 export default function App() {
-    const location = useLocation();
-    
-    const path = '/settings/profile';
-  
-    useEffect(() => {
-      console.log(location.pathname);
-    }, [location]);
-    console.log(
-      ROUTES
-    );
   return (
     <AppProvider>
       <ScrollArea className="h-screen w-full">
-        <div className="w-screen h-screen">
-          <div className="w-18/20 mx-auto">
+        <div className="">
+          <div className="w-19/20 mx-auto pb-7">
             <Navbar />
-            <Switch/>
+            <Switch />
             <Outlet />
           </div>
         </div>

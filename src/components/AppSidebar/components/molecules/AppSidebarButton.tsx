@@ -3,27 +3,17 @@ import {
   SidebarMenuSubItem,
 } from "@/components/atoms/sidebar";
 import type { MenuButton } from "@/types/sidebar";
-import { Link } from "react-router";
-
-type Props = {
-  item: MenuButton;
-  activeItemTitle: string | null;
-  setActiveItemTitle: (title: string) => void;
-};
+import { Link, useLocation } from "react-router";
 
 export default function AppSidebarButton({
   item: { title, icon: Icon, path },
-  activeItemTitle,
-  setActiveItemTitle,
-}: Props) {
+}: {
+  item: MenuButton;
+}) {
+  const { pathname } = useLocation();
   return (
     <SidebarMenuSubItem>
-      <SidebarMenuButton
-        asChild
-        onClick={() => setActiveItemTitle(title)}
-        // isActive={true}
-        isActive={title === activeItemTitle}
-      >
+      <SidebarMenuButton asChild isActive={path === pathname}>
         <Link to={path}>
           {Icon && <Icon />}
           <span>{title}</span>

@@ -34,7 +34,7 @@ const cardsDetail = [
 
 export default function Cards() {
   return (
-    <>
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:col-span-2">
       {cardsDetail.map(({ title, icon, value, changeText ,badge}) => (
         <MetricCard
           title={title}
@@ -45,6 +45,6 @@ export default function Cards() {
           key={title}
         />
       ))}
-    </>
+    </div>
   );
 }

@@ -4,7 +4,7 @@ import RecentSales from "../molecules/overview/RecentSales";
 
 export default function Overview() {
   return (
-    <div className="grid gap-4">
+    <div className="grid gap-4 lg:grid-cols-[4fr_3fr]">
       <Cards />
       <Chart />
       <RecentSales/>

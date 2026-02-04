@@ -56,6 +56,7 @@ export default function SearchDialog() {
           variant="outline"
           size="sm"
           className="flex gap-2 text-muted-foreground"
+          // className="flex gap-2 text-muted-foreground flex-1"
         >
           <Search />
           <span>Search</span>

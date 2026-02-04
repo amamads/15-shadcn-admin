@@ -38,7 +38,7 @@ const buyers = [
 
 export default function RecentSales() {
   return (
-    <Card>
+    <Card className="">
       <CardHeader>
         <CardTitle className="font-semibold">Recent Sales</CardTitle>
         <p className="text-muted-foreground text-sm">

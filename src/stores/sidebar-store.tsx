@@ -26,8 +26,6 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 type SidebarStoreState = {
-  activeItemTitle: string | null;
-  setActiveItemTitle: (item: string) => void;
   menuButtons: MenuButtons;
   open: boolean;
   setOpen: (value: boolean) => void;
@@ -148,16 +146,13 @@ export const useSidebarStore = create<SidebarStoreState>()(
   persist(
     (set) => ({
       menuButtons,
-      activeItemTitle: "Dashboard",
       open: false,
       setOpen: (value) => set({ open: value }),
-      setActiveItemTitle: (item) => set({ activeItemTitle: item, open: false }),
     }),
     {
       name: "user",
       partialize: (state) => ({
         open: state.open,
-        activeItemTitle: state.activeItemTitle,
       }),
     },
   ),
@@ -166,7 +161,3 @@ export const useSidebarStore = create<SidebarStoreState>()(
 export const selectMenuButtons = (s: SidebarStoreState) => s.menuButtons;
 export const selectOpen = (s: SidebarStoreState) => s.open;
 export const selectSetOpen = (s: SidebarStoreState) => s.setOpen;
-export const selectActiveItemTitle = (s: SidebarStoreState) =>
-  s.activeItemTitle;
-export const selectSetActiveItemTitle = (s: SidebarStoreState) =>
-  s.setActiveItemTitle;

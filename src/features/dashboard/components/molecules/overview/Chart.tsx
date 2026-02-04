@@ -39,7 +39,7 @@ export default function Chart() {
         <CardTitle>Overview</CardTitle>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="size-85">
+        <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
             <XAxis
               dataKey="month"
@@ -66,7 +66,7 @@ export default function Chart() {
               )}
             />
 
-            <Bar dataKey="price" fill="var(--color-desktop)" radius={4} />
+            <Bar dataKey="price" fill="var(--color-desktop)" radius={4}/>
           </BarChart>
         </ChartContainer>
       </CardContent>

@@ -34,7 +34,7 @@ const chartData = [
 
 export function Chart() {
   return (
-    <Card>
+    <Card className="lg:col-span-2">
       <CardHeader>
         <CardTitle>Traffic Overview</CardTitle>
         <p className="text-sm text-muted-foreground">
@@ -42,7 +42,7 @@ export function Chart() {
         </p>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="h-73 w-full">
+        <ChartContainer config={chartConfig} className="h-73">
           <AreaChart
             accessibilityLayer
             data={chartData}

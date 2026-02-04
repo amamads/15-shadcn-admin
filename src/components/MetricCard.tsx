@@ -1,6 +1,6 @@
 import { formatter } from "@/shared/utils/formaatter";
 import type { LucideIcon } from "lucide-react";
-import { Card } from "./atoms/card";
+import { Card, CardHeader } from "./atoms/card";
 
 export default function MetricCard({
   title,
@@ -16,15 +16,17 @@ export default function MetricCard({
   badge?: string;
 }) {
   return (
-    <Card className="grid grid-cols-2 px-8" key={title}>
-      <p className="text-sm font-bold">{title}</p>
-      <Icon className="size-4 place-self-end text-muted-foreground" />
-      <div className="col-span-2">
+    <Card className="flex px-8 lg:px-5" key={title}>
+      <div className="flex justify-between">
+        <p className="text-sm font-bold">{title}</p>
+        <Icon className="size-4 place-self-end text-muted-foreground" />
+      </div>
+      <div>
         <p className="text-2xl font-bold">
           {badge}
           {typeof value === "number" ? formatter(value) : value}
         </p>
-        <p className="text-secondary-foreground text-xs">{changeText}</p>
+        <p className="text-muted-foreground text-xs">{changeText}</p>
       </div>
     </Card>
   );

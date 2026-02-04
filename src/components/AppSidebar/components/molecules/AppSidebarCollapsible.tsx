@@ -14,24 +14,16 @@ import {
 } from "@radix-ui/react-collapsible";
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router";
-
-type Props = {
-  details: CollapsibleButton;
-  activeItemTitle: string | null;
-  setActiveItemTitle: (title: string) => void;
-};
+import { Link, useLocation } from "react-router";
 
 export default function AppSidebarCollapsible({
   details: { items, title, icon: Icon },
-  activeItemTitle,
-  setActiveItemTitle,
-}: Props) {
-  const [open, setOpen] = useState(() => {
-    if (items.some((item) => item.title === activeItemTitle)) return true;
-    return false;
-  });
-
+}: {
+  details: CollapsibleButton;
+}) {
+  const { pathname } = useLocation();
+  const [open, setOpen] = useState(items.some(item => item.path === pathname));
+  
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
       <SidebarMenuItem>
@@ -48,11 +40,7 @@ export default function AppSidebarCollapsible({
           <SidebarMenuSub>
             {items.map((item, i) => (
               <SidebarMenuSubItem key={i}>
-                <SidebarMenuSubButton
-                  asChild
-                  onClick={() => setActiveItemTitle(item.title)}
-                  isActive={item.title === activeItemTitle}
-                >
+                <SidebarMenuSubButton asChild isActive={pathname === item.path}>
                   <Link to={item.path}>
                     {item.icon && <item.icon />}
                     <span>{item.title}</span>
