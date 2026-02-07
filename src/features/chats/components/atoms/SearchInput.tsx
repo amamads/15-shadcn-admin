@@ -5,10 +5,10 @@ import { Search } from "lucide-react";
 export default function SearchInput() {
   const setSearchTerm = useChatsStore(selectSetSearchTerm);
   return (
-    <div className="border border-input rounded-lg flex items-center col-span-2 ">
-      <Search className="size-4 text-muted-foreground ml-2" />
+    <div className="relative col-span-2">
+      <Search className="size-4 text-muted-foreground/50 absolute bottom-1/2 translate-1/2 left-0" />
       <Input
-        className="bg-background! border-0 placeholder:text-foreground/50 placeholder:text-sm focus-visible:ring-0"
+        className="pl-8 bg-background! w-full placeholder:text-foreground/50 border-muted focus:border-foreground focus-visible:ring-0"
         placeholder="Search Chat..."
         onChange={(e) => setSearchTerm(e.target.value)}
       />

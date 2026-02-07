@@ -3,6 +3,7 @@ import { Outlet } from "react-router";
 import NavigatreSelectBox from "../components/molecules/NavigatreSelectBox";
 import PageDetail from "../components/molecules/PageDetail";
 import { ScrollArea } from "@/components/atoms/scroll-area";
+import NavigatreButtons from "../components/molecules/NavigareButtons";
 
 export const SettingsLayout = () => {
   return (
@@ -14,16 +15,18 @@ export const SettingsLayout = () => {
         </p>
       </div>
       <Separator className="bg-muted" />
-      {/* <div>
-      </div> */}
       <NavigatreSelectBox />
-      <PageDetail />
-
-      <Separator />
-
-      <ScrollArea className="h-[50vh]">
-        <Outlet />
-      </ScrollArea>
+      <div className="flex flex-col gap-4 lg:flex-row">
+        <NavigatreButtons />
+        <div className="space-y-4 flex-1 relative">
+          <PageDetail />
+          <Separator />
+          <ScrollArea className="h-[50vh] lg:h-[60vh]">
+            <Outlet />
+          </ScrollArea>
+          <div className="absolute w-full bottom-0 h-15 bg-linear-to-t from-background to-transparent" />
+        </div>
+      </div>
     </div>
   );
 };

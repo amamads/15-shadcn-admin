@@ -19,7 +19,11 @@ import type { Table as TableType } from "@tanstack/react-table";
 import { CirclePlus } from "lucide-react";
 import { useEffect } from "react";
 import { statuses } from "../../consts";
-import { selectfilterStatus, selectsetFilterStatus, useTasksStore } from "../../store/tasks-store";
+import {
+  selectfilterStatus,
+  selectsetFilterStatus,
+  useTasksStore,
+} from "../../store/tasks-store";
 import type { Task } from "../../types";
 import StatusIcon from "./StatusIcon";
 
@@ -28,8 +32,8 @@ export default function StatusFilterMenu({
 }: {
   table: TableType<Task>;
 }) {
-    const filterStatuses = useTasksStore(selectfilterStatus);
-    const setFilterStatuses = useTasksStore(selectsetFilterStatus);
+  const filterStatuses = useTasksStore(selectfilterStatus);
+  const setFilterStatuses = useTasksStore(selectsetFilterStatus);
 
   useEffect(() => {
     table.getColumn("status")?.setFilterValue(filterStatuses);
@@ -43,9 +47,22 @@ export default function StatusFilterMenu({
           {filterStatuses.length === 0 || (
             <>
               <Separator orientation="vertical" />
-              <Badge variant="secondary" className="rounded-md w-3">
+              <Badge variant="secondary" className="rounded-sm w-3 lg:hidden">
                 {filterStatuses.length}
               </Badge>
+              <div className="hidden lg:block space-x-1">
+                {filterStatuses.length < 3 ? (
+                  filterStatuses.map((filter) => (
+                    <Badge variant="secondary" className="rounded-sm">
+                      {capitalizeFirstLetter(filter)}
+                    </Badge>
+                  ))
+                ) : (
+                  <Badge variant="secondary" className="rounded-sm font-normal">
+                    3 selected
+                  </Badge>
+                )}
+              </div>
             </>
           )}
         </Button>
@@ -60,10 +77,12 @@ export default function StatusFilterMenu({
                   id={status + i}
                   checked={filterStatuses.includes(status)}
                   onCheckedChange={(checked) => {
-                      const arr = filterStatuses ?? [];
-                      if (checked)
-                        return setFilterStatuses(arr.includes(status) ? arr : [...arr, status])
-                      return setFilterStatuses(arr.filter((s) => s !== status))
+                    const arr = filterStatuses ?? [];
+                    if (checked)
+                      return setFilterStatuses(
+                        arr.includes(status) ? arr : [...arr, status],
+                      );
+                    return setFilterStatuses(arr.filter((s) => s !== status));
                   }}
                 />
                 <Label className="w-full" htmlFor={status + i}>

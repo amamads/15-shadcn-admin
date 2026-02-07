@@ -112,7 +112,7 @@ const PaginationBtns = ({
 }) => {
   const pages = getPages(pageCount, currentPage);
   return (
-    <Pagination className="w-fit max-sm:mx-0">
+    <Pagination>
       <PaginationContent>
         <PaginationItem>
           <Button

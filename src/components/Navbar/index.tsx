@@ -22,7 +22,7 @@ export default function Navbar() {
       </div>
 
       <div className="flex gap-3 items-center w-full justify-end">
-        <SearchDialog />
+        <SearchDialog inDashboardPage={inDashboardPage}/>
         <ThemeDropdown />
         <ThemeSettinga />
         <AvatarDropdown />

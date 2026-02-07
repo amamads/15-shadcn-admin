@@ -4,8 +4,8 @@ import TasksTable from "../components/organisms/TasksTable";
 
 export const Tasks = () => {
   return (
-    <div className="my-5">
-      <div className="grid gap-2">
+    <div className="my-5 w-full">
+      <div className="flex flex-wrap items-end gap-2 sm:flex-row justify-between">
         <div>
           <h3 className="font-bold">Tasks</h3>
           <p className="text-muted-foreground">

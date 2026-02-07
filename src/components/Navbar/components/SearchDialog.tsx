@@ -1,3 +1,4 @@
+import { Badge } from "@/components/atoms/badge";
 import { Button } from "@/components/atoms/button";
 import {
   Command,
@@ -24,12 +25,13 @@ import {
   Moon,
   Search,
   Sun,
+  Command as CommandIcon,
   type LucideIcon,
 } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-export default function SearchDialog() {
+export default function SearchDialog({inDashboardPage}:{inDashboardPage:boolean}) {
   const [open, setOpen] = useState(false);
   const { general, pages, other } = useSidebarStore(selectMenuButtons);
   const navigate = useNavigate();
@@ -55,11 +57,15 @@ export default function SearchDialog() {
         <Button
           variant="outline"
           size="sm"
-          className="flex gap-2 text-muted-foreground"
-          // className="flex gap-2 text-muted-foreground flex-1"
+          className={`flex gap-2 text-muted-foreground sm:px-1! sm:w-40 lg:w-55 justify-start ${inDashboardPage || 'flex-1'}`}
+          // className={`flex gap-2 text-muted-foreground sm:px-1! sm:w-40 lg:w-55 justify-start ${inDashboardPage || 'flex-1 '}`}
         >
           <Search />
           <span>Search</span>
+          <Badge variant='secondary' className="text-muted-foreground rounded-sm border-input p-1 px-1.5 hidden sm:flex ml-auto">
+            <CommandIcon className="size-4"/>
+            <span className="text-[10px]">K</span>
+          </Badge>
         </Button>
       </DialogTrigger>
       <DialogContent className="p-0">

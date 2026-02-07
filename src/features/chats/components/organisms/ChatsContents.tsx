@@ -6,7 +6,7 @@ import DefaultContentPage from "./DefaultContentPage";
 export default function ChatsContents() {
   const chatsData: Chat[] = useChatsStore(selectChatsData);
   return (
-    <div className="col-span-2">
+    <div>
       <DefaultContentPage />
       {chatsData.map(data => <ContentPage data={data}/>)}
     </div>

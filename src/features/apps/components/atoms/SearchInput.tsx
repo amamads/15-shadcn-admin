@@ -11,7 +11,7 @@ export default function SearchInput() {
   return (
     <Input
       placeholder={searchTerm || "Filter apps..."}
-      className="w-38"
+      className="w-38 lg:w-63"
       onChange={(e) => setSearchTerm(e.target.value)}
     />
   );

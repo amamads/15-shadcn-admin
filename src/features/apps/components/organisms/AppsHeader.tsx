@@ -10,10 +10,12 @@ export default function AppsHeader() {
           Here's a list of your apps for the integration!
         </h6>
       </div>
-      <SearchInput />
-      <div className="flex justify-between">
-        <FilterConnectionSelectBox />
-        <SortAppsDropdown />
+      <div className="flex flex-col gap-5 sm:flex-row">
+        <SearchInput />
+        <div className="flex w-full justify-between">
+          <FilterConnectionSelectBox />
+          <SortAppsDropdown />
+        </div>
       </div>
     </header>
   );

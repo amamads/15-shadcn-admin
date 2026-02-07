@@ -51,7 +51,7 @@ export default function ContentPage({
           </div>
         </CardHeader>
         <CardContent>
-          <ScrollArea className="h-[60vh]">
+          <ScrollArea className="h-[60vh]" childClassName="flex items-end">
             <div className="grid gap-8">
               {[...messages]
                 .reverse()

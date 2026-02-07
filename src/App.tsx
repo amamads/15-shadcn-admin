@@ -1,6 +1,5 @@
 import { Outlet } from "react-router";
 import { ScrollArea, ScrollBar } from "./components/atoms/scroll-area";
-import { Switch } from "./components/atoms/switch";
 import Navbar from "./components/Navbar";
 import AppProvider from "./providers/AppProvider";
 
@@ -11,7 +10,6 @@ export default function App() {
         <div className="">
           <div className="w-19/20 mx-auto pb-7">
             <Navbar />
-            <Switch />
             <Outlet />
           </div>
         </div>

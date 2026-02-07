@@ -42,9 +42,22 @@ export default function PriorityFilterMenu({
           {filterPrioritys.length === 0 || (
             <>
               <Separator orientation="vertical" />
-              <Badge variant="secondary" className="rounded-md w-3">
+              <Badge variant="secondary" className="rounded-sm w-3 lg:hidden">
                 {filterPrioritys.length}
               </Badge>
+              <div className="hidden lg:block space-x-1">
+                {filterPrioritys.length < 3 ? (
+                  filterPrioritys.map((filter) => (
+                    <Badge variant="secondary" className="rounded-sm">
+                      {capitalizeFirstLetter(filter)}
+                    </Badge>
+                  ))
+                ) : (
+                  <Badge variant="secondary" className="rounded-sm font-normal">
+                    3 selected
+                  </Badge>
+                )}
+              </div>
             </>
           )}
         </Button>
@@ -56,12 +69,14 @@ export default function PriorityFilterMenu({
             <CommandItem key={priority}>
               <Checkbox
                 id={priority + i}
-                  checked={filterPrioritys.includes(priority)}
+                checked={filterPrioritys.includes(priority)}
                 onCheckedChange={(checked) => {
                   const arr = filterPrioritys ?? [];
                   if (checked)
-                    return setFilterPrioritys(arr.includes(priority) ? arr : [...arr, priority])
-                  return setFilterPrioritys(arr.filter((s) => s !== priority))
+                    return setFilterPrioritys(
+                      arr.includes(priority) ? arr : [...arr, priority],
+                    );
+                  return setFilterPrioritys(arr.filter((s) => s !== priority));
                   // setFilterPrioritys((prev) => {
                   //   const arr = prev ?? [];
                   //   if (checked)
