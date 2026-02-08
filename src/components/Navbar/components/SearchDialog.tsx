@@ -13,7 +13,6 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@/components/atoms/dialog";
-import { ScrollArea } from "@/components/atoms/scroll-area";
 import type { Theme } from "@/providers/thme-provider/theme-procider-context";
 import { useTheme } from "@/providers/thme-provider/use-theme";
 import capitalizeFirstLetter from "@/shared/utils/capitalizeFirstLetter";
@@ -21,11 +20,11 @@ import { selectMenuButtons, useSidebarStore } from "@/stores/sidebar-store";
 import {
   ArrowRight,
   ChevronRight,
+  Command as CommandIcon,
   Laptop,
   Moon,
   Search,
   Sun,
-  Command as CommandIcon,
   type LucideIcon,
 } from "lucide-react";
 import { useState } from "react";
@@ -68,14 +67,14 @@ export default function SearchDialog({inDashboardPage}:{inDashboardPage:boolean}
           </Badge>
         </Button>
       </DialogTrigger>
-      <DialogContent className="p-0">
+      <DialogContent className="p-0 w-full">
         <Command>
           <CommandInput
             placeholder="Type a command or search..."
             className="placeholder:text-base"
           />
-          <CommandList className="overflow-hidden">
-            <ScrollArea className="h-[50vh]">
+          <CommandList className="overflow-auto">
+            {/* <div className="h-[50vh]"> */}
               <CommandGroup heading="General">
                 {general.items?.map(({ title, path }) => (
                   <CommandItem
@@ -158,7 +157,91 @@ export default function SearchDialog({inDashboardPage}:{inDashboardPage:boolean}
                   </CommandItem>
                 ))}
               </CommandGroup>
-            </ScrollArea>
+            {/* </div> */}
+            {/* <ScrollArea className="h-[50vh]">
+              <CommandGroup heading="General">
+                {general.items?.map(({ title, path }) => (
+                  <CommandItem
+                    onSelect={() => onSelectCommandItem(path)}
+                    className="p-3"
+                  >
+                    <ArrowRight />
+                    <p>{title}</p>
+                  </CommandItem>
+                ))}
+                {general.collapsibles?.flatMap(
+                  ({ items, title: collapTitle }) =>
+                    items.map(({ path, title }) => (
+                      <CommandItem
+                        onSelect={() => onSelectCommandItem(path)}
+                        className="p-3"
+                      >
+                        <ArrowRight />
+                        <div className="flex gap-2 items-center">
+                          <p>{collapTitle}</p>
+                          <ChevronRight className="" />
+                          <p>{title}</p>
+                        </div>
+                      </CommandItem>
+                    )),
+                )}
+              </CommandGroup>
+              <CommandGroup heading="Pages">
+                {pages.collapsibles?.flatMap(({ items, title: collapTitle }) =>
+                  items.map(({ path, title }) => (
+                    <CommandItem
+                      onSelect={() => onSelectCommandItem(path)}
+                      className="p-3"
+                    >
+                      <ArrowRight />
+                      <div className="flex gap-2 items-center">
+                        <p>{collapTitle}</p>
+                        <ChevronRight className="" />
+                        <p>{title}</p>
+                      </div>
+                    </CommandItem>
+                  )),
+                )}
+              </CommandGroup>
+              <CommandGroup heading="Other">
+                {other.collapsibles?.flatMap(({ items, title: collapTitle }) =>
+                  items.map(({ path, title }) => (
+                    <CommandItem
+                      onSelect={() => onSelectCommandItem(path)}
+                      className="p-3"
+                    >
+                      <ArrowRight />
+                      <div className="flex gap-2 items-center">
+                        <p>{collapTitle}</p>
+                        <ChevronRight className="" />
+                        <p>{title}</p>
+                      </div>
+                    </CommandItem>
+                  )),
+                )}
+                {other.items?.map(({ title, path }) => (
+                  <CommandItem
+                    onSelect={() => onSelectCommandItem(path)}
+                    className="p-3"
+                  >
+                    <ArrowRight />
+                    <p>{title}</p>
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+              <CommandSeparator />
+              <CommandGroup heading="Theme">
+                {themeOptions.map(({ theme: theme, icon: Icon }) => (
+                  <CommandItem
+                    onSelect={() => onSelectCommandThemeItem(theme)}
+                    className="p-3"
+                  >
+                    <Icon />
+                    <p>{capitalizeFirstLetter(theme)}</p>
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            </ScrollArea> */}
           </CommandList>
         </Command>
       </DialogContent>

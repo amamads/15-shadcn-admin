@@ -1,4 +1,4 @@
-import { ScrollArea } from "@/components/atoms/scroll-area";
+import { ScrollArea, ScrollBar } from "@/components/atoms/scroll-area";
 import { Separator } from "@/components/atoms/separator";
 import AppsContent from "../components/organisms/AppsContent";
 import AppsHeader from "../components/organisms/AppsHeader";
@@ -8,9 +8,9 @@ export const Apps = () => {
     <div className="space-y-5 mt-4 h-full">
       <AppsHeader />
       <Separator />
-      <ScrollArea className="h-95">
+      <div className="h-95 overflow-auto">
         <AppsContent />
-      </ScrollArea>
+      </div>
     </div>
   );
 };

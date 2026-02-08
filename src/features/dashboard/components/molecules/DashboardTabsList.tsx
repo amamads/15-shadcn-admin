@@ -1,11 +1,9 @@
-import { TabsTrigger, TabsList } from "@/components/atoms/tabs";
+import { TabsList, TabsTrigger } from "@/components/atoms/tabs";
 import dashboardTabs from "../../config/dashboard-tabs";
-import { ScrollArea, ScrollBar } from "@/components/atoms/scroll-area";
 
 export default function DashboardTabsList() {
   return (
-    <ScrollArea>
-      <TabsList className="bg-secondary rounded-lg p-1  w-85 mb-5">
+      <TabsList className="bg-secondary rounded-lg p-1  w-85 mb-5 overflow-auto">
         {dashboardTabs.map(({ value, name }) => (
           <TabsTrigger
             key={value}
@@ -23,7 +21,5 @@ export default function DashboardTabsList() {
           </TabsTrigger>
         ))}
       </TabsList>
-      <ScrollBar orientation="horizontal" className="h-2" />
-    </ScrollArea>
   );
 }

@@ -1,9 +1,8 @@
 import { Button } from "@/components/atoms/button";
+import capitalizeFirstLetter from "@/shared/utils/capitalizeFirstLetter";
 import { useLocation, useNavigate } from "react-router";
 import { settingsPages } from "../../consts";
 import SettingsPagesIcon from "./SettingsPagesIcon";
-import capitalizeFirstLetter from "@/shared/utils/capitalizeFirstLetter";
-import { ScrollArea, ScrollBar } from "@/components/atoms/scroll-area";
 
 export default function NavigatreButtons() {
   const { pathname } = useLocation();
@@ -11,8 +10,7 @@ export default function NavigatreButtons() {
   const navigate = useNavigate();
 
   return (
-    <ScrollArea>
-      <div className="hidden md:flex py-2 gap-2 w-100 lg:flex-col lg:w-40">
+      <div className="hidden md:flex py-2 gap-2  lg:flex-col lg:w-40 overflow-auto">
         {settingsPages.map((page) => (
           <Button
             variant="ghost"
@@ -25,7 +23,5 @@ export default function NavigatreButtons() {
           </Button>
         ))}
       </div>
-      <ScrollBar orientation="horizontal" />
-    </ScrollArea>
   );
 }

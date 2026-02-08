@@ -21,9 +21,9 @@ export const SettingsLayout = () => {
         <div className="space-y-4 flex-1 relative">
           <PageDetail />
           <Separator />
-          <ScrollArea className="h-[50vh] lg:h-[60vh]">
+          <div className="h-[50vh] overflow-auto">
             <Outlet />
-          </ScrollArea>
+          </div>
           <div className="absolute w-full bottom-0 h-15 bg-linear-to-t from-background to-transparent" />
         </div>
       </div>

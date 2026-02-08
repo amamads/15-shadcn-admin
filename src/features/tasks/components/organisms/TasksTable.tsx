@@ -22,7 +22,7 @@ export default function TasksTable() {
         <Card className="p-0 rounded-md w-full">
           <ScrollArea className="w-full">
             <Table<Task> table={table} />
-            <ScrollBar orientation="horizontal" />
+            <ScrollBar orientation="horizontal"/>
           </ScrollArea>
         </Card>
       </main>

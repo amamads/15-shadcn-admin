@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/atoms/avatar";
-import { ScrollArea } from "@/components/atoms/scroll-area";
 import { Separator } from "@/components/atoms/separator";
 import { TabsList, TabsTrigger } from "@/components/atoms/tabs";
 import { selectChatsData, useChatsStore } from "../../store/chats-store";
@@ -12,8 +11,7 @@ export default function ChatsTabs() {
   return (
     <div>
       <TabsHeader />
-      <ScrollArea className="h-118">
-        <TabsList className="flex flex-col bg-transparent p-0 h-auto w-full">
+        <TabsList className="flex flex-col bg-transparent p-0 w-full overflow-auto h-[70vh]">
           {chatsData.map((chat, i) => (
             <div key={chat.username} className="w-full">
               <TabsTrigger
@@ -42,7 +40,6 @@ export default function ChatsTabs() {
             </div>
           ))}
         </TabsList>
-      </ScrollArea>
     </div>
   );
 }

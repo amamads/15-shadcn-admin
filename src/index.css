@@ -135,4 +135,22 @@
   h5 {
     @apply scroll-m-20 text-lg font-semibold;
   }
+
+  .overflow-auto::-webkit-scrollbar {
+    @apply bg-transparent size-4;
+  }
+
+  .overflow-auto::-webkit-scrollbar-thumb {
+    @apply bg-muted/80 rounded-lg;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .overflow-auto::-webkit-scrollbar-track {
+    @apply bg-transparent
+  }
+
+  .overflow-auto::-webkit-scrollbar-corner {
+    @apply bg-transparent
+  }
 }

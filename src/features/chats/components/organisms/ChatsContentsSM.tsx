@@ -1,7 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/atoms/avatar";
 import { Button } from "@/components/atoms/button";
 import { Input } from "@/components/atoms/input";
-import { ScrollArea } from "@/components/atoms/scroll-area";
 import { TabsContent } from "@/components/atoms/tabs";
 import { cn } from "@/lib/utils";
 import formatDate from "@/shared/utils/formatDate";
@@ -57,7 +56,6 @@ export default function ChatsContentsSM() {
               </Button>
             </header>
               <main>
-            <ScrollArea className="h-[80vh]" childClassName="flex items-end">
                 <div className="grid gap-8">
                   {[...messages]
                     .reverse()
@@ -89,7 +87,6 @@ export default function ChatsContentsSM() {
                       );
                     })}
                 </div>
-            </ScrollArea>
               </main>
             <footer className="">
               <div className="border border-input rounded-lg flex items-center w-full px-3">

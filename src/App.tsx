@@ -6,15 +6,15 @@ import AppProvider from "./providers/AppProvider";
 export default function App() {
   return (
     <AppProvider>
-      <ScrollArea className="h-screen w-full">
-        <div className="">
+      {/* <ScrollArea className="h-screen w-full"> */}
+        <div className="w-full overflow-auto h-screen">
           <div className="w-19/20 mx-auto pb-7">
             <Navbar />
             <Outlet />
           </div>
         </div>
-        <ScrollBar orientation="horizontal" />
-      </ScrollArea>
+        {/* <ScrollBar orientation="horizontal" />
+      </ScrollArea> */}
     </AppProvider>
   );
 }
