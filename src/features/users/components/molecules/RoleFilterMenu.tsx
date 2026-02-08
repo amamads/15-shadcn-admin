@@ -2,6 +2,7 @@ import { Badge } from "@/components/atoms/badge";
 import { Button } from "@/components/atoms/button";
 import { Checkbox } from "@/components/atoms/checkbox";
 import {
+  Command,
   CommandGroup,
   CommandInput,
   CommandItem,
@@ -15,7 +16,7 @@ import {
 import { Separator } from "@/components/atoms/separator";
 import capitalizeFirstLetter from "@/shared/utils/capitalizeFirstLetter";
 import type { Table as TableType } from "@tanstack/react-table";
-import { CirclePlus, Command } from "lucide-react";
+import { CirclePlus } from "lucide-react";
 import { useEffect } from "react";
 import { roles } from "../../consts";
 import {
@@ -42,14 +43,26 @@ export default function RoleFilterMenu({ table }: { table: TableType<User> }) {
           {filterRole.length === 0 || (
             <>
               <Separator orientation="vertical" />
-              <Badge variant="secondary" className="rounded-md w-3">
+              <Badge variant="secondary" className="rounded-sm w-3 lg:hidden">
                 {filterRole.length}
               </Badge>
+              <div className="hidden lg:block space-x-1">
+                {filterRole.length < 3 ? (
+                  filterRole.map((filter) => (
+                    <Badge variant="secondary" className="rounded-sm">
+                      {capitalizeFirstLetter(filter)}
+                    </Badge>
+                  ))
+                ) : (
+                  <Badge variant="secondary" className="rounded-sm font-normal">
+                    3 selected
+                  </Badge>
+                )}
+              </div>
             </>
           )}
         </Button>
       </PopoverTrigger>
-      {/* <PopoverContent>yahohoh</PopoverContent> */}
       <PopoverContent className="p-0 w-55" align="start">
         <Command>
           <CommandInput placeholder="Role" />

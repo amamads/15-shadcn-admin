@@ -38,11 +38,11 @@ export const tasksColumns: ColumnDef<Task>[] = [
       <SortableHeader<Task> column={column} lable="Title" />
     ),
     cell: ({ renderValue, row }) => (
-      <div className="flex gap-3 w-35 overflow-hidden">
+      <div className="flex gap-3">
         <Badge variant="outline">
           {capitalizeFirstLetter(row.getValue("label"))}
         </Badge>
-        <p>{String(renderValue())}</p>
+        <p className="truncate ">{String(renderValue())}</p>
       </div>
     ),
   },
